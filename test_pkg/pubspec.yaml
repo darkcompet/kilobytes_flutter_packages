@@ -1,8 +1,8 @@
-name: kilobytes_flutter_core
+name: test_pkg
 description: A new Flutter package project.
 version: 0.0.1
-author: kilobytes
-homepage: https://kilobytes.com.vn
+author:
+homepage:
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
