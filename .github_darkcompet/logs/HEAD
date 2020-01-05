@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 a70358ee15e9874f1ab1c8446bd1bb0df2232b00 DarkCompet <darkcompet@gmail.com> 1578243187 +0700	clone: from https://github.com/darkcompet/kilobytes_flutter_packages.git
+a70358ee15e9874f1ab1c8446bd1bb0df2232b00 a4586abc704af42d41c1258a0b752c3e8be9d65b DarkCompet <darkcompet@gmail.com> 1578243359 +0700	commit: initial
+a4586abc704af42d41c1258a0b752c3e8be9d65b 348fec83c3c0f697c68f4fdd9faa8b2fdc26ca2b DarkCompet <darkcompet@gmail.com> 1578245137 +0700	commit: structurize packages
+348fec83c3c0f697c68f4fdd9faa8b2fdc26ca2b d39603059b1c687bee67762e3f34bb81b7c619d0 DarkCompet <darkcompet@gmail.com> 1578249720 +0700	commit: refactor packages
