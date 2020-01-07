@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kilobytes_flutter_core/core.dart';
+import 'package:kilobytes_flutter_core/src/log/benchmark.dart';
+import 'package:kilobytes_flutter_core/src/util/maths.dart';
 
 void main() {
   test('Tester', () {
@@ -9,6 +11,20 @@ void main() {
 
 class Tester {
    void start() {
-      DkLogs.debug(this, "test debug");
+      DkBenchMark.tick(this, "parse");
+
+      for (int i = 0; i < 1000000; ++i) {
+         int.parse("-123456789");
+      }
+
+      DkBenchMark.tock(this);
+
+      DkBenchMark.tick(this, "parseInt");
+
+      for (int i = 0; i < 1000000; ++i) {
+         DkMaths.parseInt("-123456789");
+      }
+      
+      DkBenchMark.tock(this);
    }
 }
