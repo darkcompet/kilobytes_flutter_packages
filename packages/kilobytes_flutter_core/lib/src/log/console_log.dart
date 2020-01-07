@@ -1,10 +1,10 @@
-import 'dart:io';
+//import 'dart:io';
 import 'dart:math' show max;
 
 import 'package:flutter/foundation.dart' show kReleaseMode;
 
 /**
- * Console log utility class. Some function can be used in debug mode,
+ * Standard (Console) log utility class. Some function can be used in debug mode,
  * but some can be only used in release mode. To use all functions of this,
  * caller maybe need wrap with `if (kDebugMode) {}`.
  * 
