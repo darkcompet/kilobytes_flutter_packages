@@ -1,43 +1,45 @@
-import '../config/build_config.dart';
+import 'dart:math';
+
+import 'package:flutter/foundation.dart';
 
 /**
- * Console log utility class.
+ * Console log utility class. Some function can be used in debug mode,
+ * but some can be only used in release mode. To use all functions of this,
+ * caller maybe need wrap with `if (kDebugMode) {}`.
  * 
  * @author: `darkcompet` (co.vp@kilobytes.com.vn)
  */
 class DkLogs {
-   static void _log(bool invalidInReleaseMode, String type, String msg) {
-      if (DkBuildConfig.RELEASE && invalidInReleaseMode) {
-         throw "Cannot use log of $type in release mode";
+   static void _log(bool invalidInReleaseMode, String type, Object where, String msg) {
+      if (kReleaseMode && invalidInReleaseMode) {
+         throw "Cannot use log $type in release mode";
       }
-      print(msg);
+      print("${_makePrefix(where, type)} $msg");
    }
 
-   static String _makePrefix(Object where) {
-      return "_____ ${where == null ? "Unknown" : where.toString()}~";
+   static String _makePrefix(Object where, String type) {
+      String prefix = where == null ? 'Unknown' : where.toString();
+      prefix = prefix.substring(max(0, prefix.indexOf("'")));
+      return "_____ $type $prefix~";
    }
 
    /// Debug log. Cannot use in release mode.
    static void debug(Object where, String msg) {
-      String type = "[DEBUG]";
-      _log(false, type, "$type ${_makePrefix(where)} $msg");
+      _log(false, "[DEBUG]", where, msg);
    }
 
    /// Info log. Cannot use in release mode.
-   static void log(Object where, String msg) {
-      String type = "[INFO]";
-      _log(false, type, "$type ${_makePrefix(where)} $msg");
+   static void logi(Object where, String msg) {
+      _log(false, "[INFO]", where, msg);
    }
 
    /// Warning log. Can use in release mode.
    static void logw(Object where, String msg) {
-      String type = "[WARNING]";
-      _log(true, type, "$type ${_makePrefix(where)} $msg");
+      _log(false, "[WARN]", where, msg);
    }
 
    /// Error log. Can use in release mode.
    static void loge(Object where, Exception e) {
-      String type = "[ERROR]";
-      _log(true, type, "$type ${_makePrefix(where)} $e");
+      _log(false, "[ERROR]", where, e.toString());
    }
 }
