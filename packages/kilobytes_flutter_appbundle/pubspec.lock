@@ -79,7 +79,7 @@ packages:
     description:
       path: "packages/kilobytes_flutter_core"
       ref: HEAD
-      resolved-ref: "876e3ed0a50e6ab48b97d2f5b89685eea20e3658"
+      resolved-ref: "95c47d7f49f4f5a08cbdc7810a5d040622a8c787"
       url: "git://github.com/darkcompet/kilobytes_flutter_packages.git"
     source: git
     version: "0.0.1"

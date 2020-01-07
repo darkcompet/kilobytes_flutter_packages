@@ -6,23 +6,23 @@ import 'package:flutter/foundation.dart' show kReleaseMode;
 /**
  * Standard (Console) log utility class. Some function can be used in debug mode,
  * but some can be only used in release mode. To use all functions of this,
- * caller maybe need wrap with `if (kDebugMode) {}`.
+ * caller maybe need wrap with `if (kDebugMode) {}` or `if (DEBUG) {}`.
  * 
  * @author: `darkcompet` (co.vp@kilobytes.com.vn)
  */
 class DkLogs {
+   /// Write log. Note that, we can use `stdout.writeln()` instead.
    static void _log(bool invalidInReleaseMode, String type, Object where, String msg) {
       if (kReleaseMode && invalidInReleaseMode) {
          throw "Cannot use log $type in release mode";
       }
       print("${_makePrefix(where, type)} $msg");
-      //or use:
-      //stdout.writeln("${_makePrefix(where, type)} $msg");
    }
 
+   /// Create prefix from [where] and [type] of log.
    static String _makePrefix(Object where, String type) {
       String prefix = where == null ? 'Unknown' : where.toString();
-      // prefix example: Instance of 'where'
+      // got prefix: Instance of 'where'
       prefix = prefix.substring(max(0, prefix.indexOf("'")));
       return "_____ $type $prefix~";
    }
@@ -43,7 +43,12 @@ class DkLogs {
    }
 
    /// Error log. Can use in release mode.
-   static void loge(Object where, Exception e) {
+   static void logex(Object where, Exception e) {
       _log(false, "[ERROR]", where, e.toString());
+   }
+
+   /// Error log. Can use in release mode.
+   static void loge(Object where, String msg) {
+      _log(false, "[ERROR]", where, msg);
    }
 }
