@@ -1,6 +1,6 @@
-import 'dart:math';
+import 'dart:math' show max;
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart' show kReleaseMode;
 
 /**
  * Console log utility class. Some function can be used in debug mode,
@@ -19,6 +19,7 @@ class DkLogs {
 
    static String _makePrefix(Object where, String type) {
       String prefix = where == null ? 'Unknown' : where.toString();
+      // prefix example: Instance of 'where'
       prefix = prefix.substring(max(0, prefix.indexOf("'")));
       return "_____ $type $prefix~";
    }
