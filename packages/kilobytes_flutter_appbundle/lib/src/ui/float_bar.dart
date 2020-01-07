@@ -5,7 +5,7 @@ void toast() {
    //
 }
 
-void snack(BuildContext context, String msg, String actionText, {VoidCallback onActionPressed, bool autoDismissOnPressed = true}) {
+void snack(BuildContext context, String msg, String actionText, {Function onActionPressed, bool autoDismissOnPressed = true}) {
    final snackbar = Scaffold.of(context);
    snackbar.showSnackBar(SnackBar(
       content: Text(msg),

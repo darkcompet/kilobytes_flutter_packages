@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math' show max;
 
 import 'package:flutter/foundation.dart' show kReleaseMode;
@@ -15,6 +16,8 @@ class DkLogs {
          throw "Cannot use log $type in release mode";
       }
       print("${_makePrefix(where, type)} $msg");
+      //or use:
+      //stdout.writeln("${_makePrefix(where, type)} $msg");
    }
 
    static String _makePrefix(Object where, String type) {
