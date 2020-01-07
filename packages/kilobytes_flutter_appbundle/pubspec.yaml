@@ -8,12 +8,17 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
+   flutter:
+      sdk: flutter
+
+   kilobytes_flutter_core:
+      git:
+         url: git://github.com/darkcompet/kilobytes_flutter_packages.git
+         path: packages/kilobytes_flutter_core
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+   flutter_test:
+      sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

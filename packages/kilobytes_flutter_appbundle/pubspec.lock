@@ -74,6 +74,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
+  kilobytes_flutter_core:
+    dependency: "direct main"
+    description:
+      path: "packages/kilobytes_flutter_core"
+      ref: HEAD
+      resolved-ref: "876e3ed0a50e6ab48b97d2f5b89685eea20e3658"
+      url: "git://github.com/darkcompet/kilobytes_flutter_packages.git"
+    source: git
+    version: "0.0.1"
   matcher:
     dependency: transitive
     description:
