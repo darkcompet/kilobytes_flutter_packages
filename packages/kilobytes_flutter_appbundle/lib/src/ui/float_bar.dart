@@ -15,9 +15,6 @@ void snack(BuildContext context, String msg, String actionText,
          if (autoDismissOnPressed) {
             snackbar.hideCurrentSnackBar();
          }
-         if (DEBUG) {
-            DkLogs.debug("snackbar", "onActionPressed: $onActionPressed");
-         }
          if (onActionPressed != null) {
             onActionPressed();
          }
