@@ -59,7 +59,8 @@ class DkLogs {
 
    /// Complain a mistake which should not be happened.
    /// This function will throw an exception.
-   static void complain(dynamic msg) {
-      throw msg;
+   static void complain(Object where, dynamic msg) {
+      String prefix = _makePrefix(where, "ERROR");
+      throw "$prefix $msg";
    }
 }
