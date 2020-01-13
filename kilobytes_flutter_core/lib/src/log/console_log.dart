@@ -1,5 +1,4 @@
-//import 'dart:io';
-import 'dart:math' show max;
+import 'dart:math' show min, max;
 
 import 'package:flutter/foundation.dart' show kReleaseMode;
 
@@ -21,10 +20,15 @@ class DkLogs {
 
    /// Create prefix from [where] and [logType] of log.
    static String _makePrefix(Object where, dynamic logType) {
-      String prefix = where == null ? 'Unknown' : where.toString();
-      // got prefix: Instance of 'where'
-      prefix = prefix.substring(max(0, prefix.indexOf("'")));
-      return "_____[$logType] $prefix~";
+      String prefix = where == null ? "Null" : where.toString();
+      prefix = prefix.length == 0 ? "?" : prefix;
+      // maybe prefix is: Instance of 'where'
+      int beginIndex = prefix.indexOf("'");
+      int endIndex = prefix.lastIndexOf("'");
+      beginIndex = beginIndex < 0 ? 0 : min(beginIndex + 1, prefix.length - 1);
+      endIndex = endIndex < 0 ? prefix.length : endIndex;
+      prefix = beginIndex < endIndex ? prefix.substring(beginIndex, endIndex) : "";
+      return "_____[$logType]($prefix)~";
    }
 
    /// Debug log. Cannot use in release mode.
