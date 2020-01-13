@@ -27,7 +27,7 @@ class DkLogs {
       int endIndex = prefix.lastIndexOf("'");
       beginIndex = beginIndex < 0 ? 0 : min(beginIndex + 1, prefix.length - 1);
       endIndex = endIndex < 0 ? prefix.length : endIndex;
-      prefix = beginIndex < endIndex ? prefix.substring(beginIndex, endIndex) : "";
+      prefix = prefix.substring(beginIndex, endIndex);
       return "_____[$logType]($prefix)~";
    }
 
